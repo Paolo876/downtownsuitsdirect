@@ -9,8 +9,15 @@ import Services from "./pages/Services"
 
 function App() {
   return (
-    <div>
-    </div>
+    <>
+      <Routes>
+        <Route element={<Home />} path="/"/>
+        <Route element={<About />} path="/about"/>
+        <Route element={<Contact />} path="/contact"/>
+        <Route element={<Services />} path="/services"/>
+      </Routes>
+    </>
+
   );
 }
 
