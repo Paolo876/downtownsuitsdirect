@@ -5,4 +5,22 @@
         font-weight: 400;
         margin-bottom: 15px;
     }
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        margin-bottom: 1.25em;
+        letter-spacing: .01em;
+        svg {
+            font-size: 1.4em;
+            color: $primary-color;
+            padding-bottom: .2em;
+        }
+    }
+    .body {
+        margin-bottom: 1.25em;
+        p {
+            margin-bottom: .3em;
+        }
+    }
 }
