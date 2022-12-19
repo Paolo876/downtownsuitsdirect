@@ -1,0 +1,17 @@
+@import "../variables.scss";
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+
+    h1 {
+        font-weight: 400;
+        letter-spacing: .03em;
+    }
+    button {
+        letter-spacing: .02em;
+        font-family: $secondary-font;
+        font-weight: 300;
+        &:hover{
+            color: $primary-color;
+        }
+    }
+}

@@ -1,8 +1,13 @@
 import React from 'react'
-
+import DocumentHead from "../components/DocumentHead"
+import Navbar from "../components/Navbar"
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <DocumentHead title="Downtown Suits Direct | Home"/>
+      <Navbar/>
+      
+    </>
   )
 }
 

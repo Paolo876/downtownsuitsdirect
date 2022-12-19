@@ -8,6 +8,8 @@ import Contact from "./pages/Contact"
 import Services from "./pages/Services"
 
 function App() {
+
+  if(document.readyState === "complete") console.log("run")
   return (
     <>
       <Routes>
