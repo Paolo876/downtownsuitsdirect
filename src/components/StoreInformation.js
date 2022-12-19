@@ -29,14 +29,12 @@ const StoreInformation = () => {
                         <Grid item display="flex" flexDirection="row" alignItems="flex-end" width="fit-content" mb={2}><EmailIcon sx={{mr: 1}} fontSize="small"/> {document.email}</Grid>
                         <Grid container gap={2} alignItems="flex-start">
                             <p>Social:</p>
-
                             <Grid item><Link className='link-item'><FacebookOutlinedIcon fontSize='medium'/></Link></Grid>
                             <Grid item><Link className='link-item'><InstagramIcon fontSize='medium'/></Link></Grid>
                         </Grid>
-
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:{xs: 0, md: 3}}} >
-                        <Button className='action-button' variant='outlined'><CalendarMonthIcon sx={{mr: 1}} fontSize="small"/>Schedule an Appointment</Button>
+                        <Button className='action-button' variant='outlined'><CalendarMonthIcon sx={{mr: 1}} fontSize="small"/>Schedule Appointment</Button>
                     </Grid>
                 </Grid>
             </Grid>
@@ -56,9 +54,9 @@ const StoreInformation = () => {
             </Grid>
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <h3 className='header'>Store Hours:</h3>
-                <List>
+                <List sx={{px:5, maxWidth: "350px"}}>
                     {document["store-hours"].map(item => (
-                        <ListItem key={item.day} sx={{m:0, p:0}}><ListItemText>{item.day}</ListItemText> <ListItemText>{item.from} - {item.to}</ListItemText></ListItem>
+                        <ListItem key={item.day} sx={{my:0, p:0}} ><ListItemText>{item.day}</ListItemText> {item.from} - {item.to}</ListItem>
                     ))}
                 </List>
             </Grid>

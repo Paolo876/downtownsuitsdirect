@@ -44,20 +44,10 @@
         }
 
     }
-    // button {
-    //     color: $primary-color-2;
-    //     svg {
-    //         color: $primary-color-2;
-    //     }
-    //     padding: .5em;
-    //     &:hover {
-    //         border-color: $primary-color-1;
-    //         background-color: transparent;
-    //     }
-    // }
-    // a {
-    //     all: inherit;
-    //     padding: 0;
-    //     cursor: pointer;
-    // }
+    ul {
+        li{
+            color: $secondary-color-2;
+            font-family: $secondary-font;
+        }
+    }
 }
