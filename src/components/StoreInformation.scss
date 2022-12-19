@@ -1,5 +1,6 @@
 @import "../variables.scss";
 .store-information{
+    opacity: .9;
     h1 {
         font-family: $secondary-font;
         font-weight: 400;
@@ -27,15 +28,15 @@
         // font-size: 1.8em;
     }
     .action-button {
-        border: 1px solid $primary-color-1;
+        border: 1px solid $dark-color-1;
         font-family: $primary-font;
-        color: $primary-color-2;
+        color: $dark-color-1;
         svg {
-            color: $primary-color-2;
+            color: $dark-color-1;
         }
         &:hover {
-            border: 1px solid $primary-color-2;
-            background-color: $primary-color-1;
+            border: 1px solid $dark-color-1;
+            background-color: $dark-color-1;
             color: $light-color;
             svg {
                 color: $light-color;
