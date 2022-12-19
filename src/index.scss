@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #fffefa;
+  background-color: $light-color;
   background-image: url("./assets/bg-pattern.png");
   font-family: $secondary-font;
 }
@@ -31,4 +31,5 @@ hr {
 a{
   all: unset;
   cursor: pointer;
+  text-decoration: none !important;
 }

@@ -4,23 +4,59 @@
         font-family: $secondary-font;
         font-weight: 400;
         margin-bottom: 15px;
+        color: $dark-color-2;
     }
     .header {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
         margin-bottom: 1.25em;
         letter-spacing: .01em;
+        color: $dark-color-2;
+        text-transform: none;
+
+    }
+
+    p {
+        margin-bottom: .75em;
+        font-weight: 500;
+        color: $secondary-color-2;
+    }
+    .link-item {
+        color: $secondary-color-2;
+    }
+    svg {
+        color: $secondary-color-1;
+        // font-size: 1.8em;
+    }
+    .action-button {
+        border: 1px solid $primary-color-1;
+        font-family: $primary-font;
+        color: $primary-color-2;
         svg {
-            font-size: 1.4em;
-            color: $primary-color;
-            padding-bottom: .2em;
+            color: $primary-color-2;
         }
-    }
-    .body {
-        margin-bottom: 1.25em;
-        p {
-            margin-bottom: .5em;
+        &:hover {
+            border: 1px solid $primary-color-2;
+            background-color: $primary-color-1;
+            color: $light-color;
+            svg {
+                color: $light-color;
+            }
         }
+
     }
+    // button {
+    //     color: $primary-color-2;
+    //     svg {
+    //         color: $primary-color-2;
+    //     }
+    //     padding: .5em;
+    //     &:hover {
+    //         border-color: $primary-color-1;
+    //         background-color: transparent;
+    //     }
+    // }
+    // a {
+    //     all: inherit;
+    //     padding: 0;
+    //     cursor: pointer;
+    // }
 }
