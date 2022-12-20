@@ -10,6 +10,9 @@ export const theme =createTheme(
         secondary: {
         main: '#ad3512',
         },
+        info: {
+            main: '#1976d2',
+          },
         background: {
         default: '#ededed',
         paper: '#f5f5f5',
@@ -59,7 +62,7 @@ export const theme =createTheme(
         fontWeight: 400,
         },
         button: {
-        fontFamily: 'Quicksand',
+        fontFamily: 'Montserrat',
         fontWeight: 500,
         lineHeight: 1.5,
         },

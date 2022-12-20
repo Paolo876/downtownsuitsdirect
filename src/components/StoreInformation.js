@@ -8,13 +8,13 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
+
 // import "./StoreInformation.scss";
-import { useTheme } from '@mui/material/styles';
 
 const StoreInformation = () => {
   const { document, error, isLoading } = useDocument("store-data", "information");
-  const theme = useTheme();
   const navigate = useNavigate();
+  console.log(document)
   if(document) return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
@@ -38,29 +38,31 @@ const StoreInformation = () => {
                         <Button href={document.social.facebook} color='info'><InstagramIcon sx={{fontSize: "2.25em"}}/></Button>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
-                        <Button  variant='outlined' color='secondary' fontWeight="regular"><CalendarMonthIcon sx={{mr: 1}} fontSize="small"/>Schedule Appointment</Button>
+                        <Button  variant='outlined' color='secondary' fontWeight="regular" sx={{py: 1, px:3}}><CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment</Button>
                     </Grid>
                 </Grid>
             </Grid>
             <Grid item xs={12} md={4} sx={{mt:3}}>
-                <h3 className='header'>Store Address:</h3>
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={6} md={12}>
-                        <p>{document.address.address1} {document.address.address2}</p>
-                        <p>{document.address.city}, {document.address.state} {document.address.zip}</p>
+                        <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Address:</Typography>
+                        <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
+                            {document.address.address1} {document.address.address2}
+                        </Typography>
+                        <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
+                            {document.address.city}, {document.address.state} {document.address.zip}
+                        </Typography>
                     </Grid>
-                    <Grid item xs={6} md={12} sx={{mt:{xs: 0, md: 3}}}>
-                        <Button href={document.address.googleMapUrl} variant="outlined" className='action-button'>
-                            <PlaceIcon sx={{mr: 1}} fontSize="small"/> Get Directions
-                        </Button>
+                    <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
+                        <Button variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}}><PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions</Button>
                     </Grid>
                 </Grid>
             </Grid>
             <Grid item xs={12} md={4} sx={{mt:3}}>
-                <h3 className='header'>Store Hours:</h3>
-                <List sx={{px:5, maxWidth: "350px"}}>
+                <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Hours:</Typography>
+                <List sx={{width: '100%', maxWidth: 360,}}>
                     {document["store-hours"].map(item => (
-                        <ListItem key={item.day} sx={{my:0, p:0}} ><ListItemText>{item.day}</ListItemText> {item.from} - {item.to}</ListItem>
+                        <ListItem key={item.day} sx={{my:1, p:0}}  alignItems="center" ><ListItemText primary={item.day}/> {item.from} - {item.to}</ListItem>
                     ))}
                 </List>
             </Grid>
