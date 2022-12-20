@@ -1,40 +1,44 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDocument } from '../hooks/useDocuments';
-import { Container, Grid, Button, Link, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Grid, Button, Link, List, ListItem, ListItemText, Typography } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
-import "./StoreInformation.scss";
+// import "./StoreInformation.scss";
+import { useTheme } from '@mui/material/styles';
 
 const StoreInformation = () => {
-  const { document, error, isLoading } = useDocument("store-data", "information")
+  const { document, error, isLoading } = useDocument("store-data", "information");
+  const theme = useTheme();
   const navigate = useNavigate();
   if(document) return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
-                <h1>Downtown suits direct</h1>
+                <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">Downtown Suits Direct</Typography>
                 <hr/>
             </Grid>
 
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={6} md={12}>
-                        <h4 className='header'>{document.name}</h4>
-                        <Grid item display="flex" flexDirection="row" alignItems="flex-end" width="fit-content" mb={2}><PhoneIcon sx={{mr: 1}} fontSize="small"/> {document.phone}</Grid>
-                        <Grid item display="flex" flexDirection="row" alignItems="flex-end" width="fit-content" mb={2}><EmailIcon sx={{mr: 1}} fontSize="small"/> {document.email}</Grid>
-                        <Grid container gap={2} alignItems="flex-start">
-                            <p>Social:</p>
-                            <Grid item><Link className='link-item'><FacebookOutlinedIcon fontSize='medium'/></Link></Grid>
-                            <Grid item><Link className='link-item'><InstagramIcon fontSize='medium'/></Link></Grid>
-                        </Grid>
+                        <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>{document.name}</Typography>
+                        <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
+                            <PhoneIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {document.phone}
+                        </Typography>
+                        <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
+                            <EmailIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {document.email}
+                        </Typography>
+                        <Typography variant="h6" align='left' fontWeight="regular" color="textPrimary">Social: </Typography>
+                        <Button href={document.social.facebook} color='info'><FacebookOutlinedIcon sx={{fontSize: "2.25em"}}/></Button>
+                        <Button href={document.social.facebook} color='info'><InstagramIcon sx={{fontSize: "2.25em"}}/></Button>
                     </Grid>
-                    <Grid item xs={6} md={12} sx={{mt:{xs: 0, md: 3}}} >
-                        <Button className='action-button' variant='outlined'><CalendarMonthIcon sx={{mr: 1}} fontSize="small"/>Schedule Appointment</Button>
+                    <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
+                        <Button  variant='outlined' color='secondary' fontWeight="regular"><CalendarMonthIcon sx={{mr: 1}} fontSize="small"/>Schedule Appointment</Button>
                     </Grid>
                 </Grid>
             </Grid>
