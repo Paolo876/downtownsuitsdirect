@@ -1,31 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { functions } from '../firebase/config';
-import { httpsCallable } from 'firebase/functions';
-import { useNavigate } from 'react-router-dom';
-import { useDocument } from '../hooks/useDocuments';
-import { Container, Grid, Button, Link, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Container, Grid, Button, List, ListItem, ListItemText, Typography } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
-import axios from 'axios';
-// import "./StoreInformation.scss";
-const StoreInformation = () => {
-  const { document, error, isLoading } = useDocument("store-data", "information");
-  const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    // const helloWorld = httpsCallable(functions, "yelpReviews")
-    // helloWorld().then((res) => {
-    //     localStorage.setItem("dsdReviews", JSON.stringify(JSON.parse(res.data).reviews))
-    // })
-  
-  }, [])
-  console.log(reviews)
-  if(document) return (
+const StoreInformation = ({ document }) => {
+
+  return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
