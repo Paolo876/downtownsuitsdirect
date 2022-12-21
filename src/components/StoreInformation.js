@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import { useNavigate } from 'react-router-dom';
@@ -12,31 +12,19 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
 import axios from 'axios';
 // import "./StoreInformation.scss";
-
 const StoreInformation = () => {
   const { document, error, isLoading } = useDocument("store-data", "information");
+  const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
   const navigate = useNavigate();
 
   useEffect(() => {
-    const helloWorld = httpsCallable(functions, "yelpReviews")
-    helloWorld().then((res) => console.log(JSON.parse(res.data)))
+    // const helloWorld = httpsCallable(functions, "yelpReviews")
+    // helloWorld().then((res) => {
+    //     localStorage.setItem("dsdReviews", JSON.stringify(JSON.parse(res.data).reviews))
+    // })
   
   }, [])
-
-  const fetchData = () => {
-
-    axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/3QnqtIIX1mE9X9tcvKs1gA/reviews?limit=20&sort_by=yelp_sort'", {
-        headers: {
-            'Content-Type': 'application/json',
-            accept: 'application/json',
-            mode: 'no-cors',
-            'Access-Control-Allow-Origin' : '*',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-            Authorization: "Bearer IHSfnqhM8PvMe5q2KvGsAJobDoRZcLOTIBtNEmQnsRtakPwDNBMeKXjm9QvEBEI2b9FHextR4VxnKQFTmbmYlEPG6Yxia-B4tjvFYenFawN9zAXW2Ae1CJ_F222hY3Yx"
-        }
-    }).then(res => console.log(res.data))
-  }
+  console.log(reviews)
   if(document) return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
@@ -77,7 +65,6 @@ const StoreInformation = () => {
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
                         <Button variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}}><PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions</Button>
-                        <Button variant='outlined' color='secondary' fontWeight="regular" onClick={() => fetchData()} sx={{py: 1, px:3}}>FETCH</Button>
                     </Grid>
                 </Grid>
             </Grid>
