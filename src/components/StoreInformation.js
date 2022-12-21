@@ -5,9 +5,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
-
+import yelpIcon from "../assets/yelp_icon.png"
 const StoreInformation = ({ document }) => {
-
   return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
@@ -29,8 +28,9 @@ const StoreInformation = ({ document }) => {
                         <Typography variant="h6" align='left' fontWeight="regular" color="textPrimary">Social: </Typography>
                         <Button href={document.social.facebook} color='info'><FacebookOutlinedIcon sx={{fontSize: "2.25em"}}/></Button>
                         <Button href={document.social.facebook} color='info'><InstagramIcon sx={{fontSize: "2.25em"}}/></Button>
+                        <Button href={document.yelp} color='info'><img src={yelpIcon} style={{height: "48px", padding: "0 1em"}}/></Button>
                     </Grid>
-                    <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
+                    <Grid item xs={6} md={12} sx={{mt:5}} >
                         <Button  variant='outlined' color='secondary' fontWeight="regular" sx={{py: 1, px:3}}><CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment</Button>
                     </Grid>
                 </Grid>
@@ -46,7 +46,7 @@ const StoreInformation = ({ document }) => {
                             {document.address.city}, {document.address.state} {document.address.zip}
                         </Typography>
                     </Grid>
-                    <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
+                    <Grid item xs={6} md={12} sx={{mt:5}} >
                         <Button variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}}><PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions</Button>
                     </Grid>
                 </Grid>
