@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import { useNavigate } from 'react-router-dom';
@@ -16,8 +16,13 @@ import axios from 'axios';
 const StoreInformation = () => {
   const { document, error, isLoading } = useDocument("store-data", "information");
   const navigate = useNavigate();
-  const helloWorld = httpsCallable(functions, "helloWorld")
-  helloWorld().then((res) => console.log(res))
+
+  useEffect(() => {
+    const helloWorld = httpsCallable(functions, "yelpReviews")
+    helloWorld().then((res) => console.log(JSON.parse(res.data)))
+  
+  }, [])
+
   const fetchData = () => {
 
     axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/3QnqtIIX1mE9X9tcvKs1gA/reviews?limit=20&sort_by=yelp_sort'", {
@@ -28,6 +33,7 @@ const StoreInformation = () => {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
             'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            Authorization: "Bearer IHSfnqhM8PvMe5q2KvGsAJobDoRZcLOTIBtNEmQnsRtakPwDNBMeKXjm9QvEBEI2b9FHextR4VxnKQFTmbmYlEPG6Yxia-B4tjvFYenFawN9zAXW2Ae1CJ_F222hY3Yx"
         }
     }).then(res => console.log(res.data))
   }
