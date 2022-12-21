@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { functions } from '../firebase/config';
+import { httpsCallable } from 'firebase/functions';
 import { useNavigate } from 'react-router-dom';
 import { useDocument } from '../hooks/useDocuments';
 import { Container, Grid, Button, Link, List, ListItem, ListItemText, Typography } from '@mui/material';
@@ -8,13 +10,27 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
-
+import axios from 'axios';
 // import "./StoreInformation.scss";
 
 const StoreInformation = () => {
   const { document, error, isLoading } = useDocument("store-data", "information");
   const navigate = useNavigate();
-  console.log(document)
+  const helloWorld = httpsCallable(functions, "helloWorld")
+  helloWorld().then((res) => console.log(res))
+  const fetchData = () => {
+
+    axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/3QnqtIIX1mE9X9tcvKs1gA/reviews?limit=20&sort_by=yelp_sort'", {
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+            mode: 'no-cors',
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        }
+    }).then(res => console.log(res.data))
+  }
   if(document) return (
     <Container className='store-information'>
         <Grid container spacing={2} sx={{ my:4 }}>
@@ -55,6 +71,7 @@ const StoreInformation = () => {
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:{xs: 1, md: 5}}} >
                         <Button variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}}><PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions</Button>
+                        <Button variant='outlined' color='secondary' fontWeight="regular" onClick={() => fetchData()} sx={{py: 1, px:3}}>FETCH</Button>
                     </Grid>
                 </Grid>
             </Grid>
