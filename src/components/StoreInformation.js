@@ -8,13 +8,12 @@ import PlaceIcon from '@mui/icons-material/Place';
 import yelpIcon from "../assets/yelp_icon.png"
 const StoreInformation = ({ document }) => {
   return (
-    <Container>
-        <Grid container spacing={2} sx={{ my:4 }}>
+    <Container sx={{ my:4 }}>
+        <Grid container spacing={2} sx={{ mt:2 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">Downtown Suits Direct</Typography>
                 <hr/>
             </Grid>
-
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={6} md={12}>

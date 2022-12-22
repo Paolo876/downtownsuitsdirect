@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
-import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, IconButton, CardContent, CardActionArea } from '@mui/material';
+import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Button, CardContent, CardActionArea } from '@mui/material';
+import yelpIcon from "../assets/yelp_transparent.png"
 const YelpReviews = () => {
   const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
   console.log(reviews)
@@ -13,36 +14,37 @@ const YelpReviews = () => {
   
   }, [])
   return (
-    <Container>
+    <Container  sx={{ my:4 }}>
       <Grid container spacing={2} sx={{ my:4 }}>
+        <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
+          <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">testimonials</Typography>
+          <hr/>
+        </Grid>
         {reviews && reviews.map(item => (
           <Grid item xs={12} key={item.id}>
-           <Card>
+           <Card sx={{position: "relative"}} variant="primary">
             <CardActionArea href={item.url}>
+              <CardContent>
+                <Rating name="read-only" value={item.rating} readOnly precision={0.5} size="large" sx={{my: 1}}/>
+                <Typography variant="h5" align='left' fontWeight="regular" color="text.secondary" sx={{fontStyle: "italic"}}>"{item.text}"</Typography>
+              </CardContent>
               <CardHeader 
-                  title={<Rating name="read-only" value={item.rating} readOnly precision={0.5} size="large"/>}
-                  subheader={<Typography variant="h5" align='left' fontWeight="regular" color="text.secondary" sx={{fontStyle: "italic"}}>"{item.text}"</Typography>}
-                />
-                <CardContent>
-                
-                <Avatar src={item.user.image_url} alt={item.user.id}/>
-                <Typography variant="body2" color="text.secondary">{item.user.name}</Typography>
-                </CardContent>
+                sx={{py:2}}
+                avatar={ <Avatar src={item.user.image_url} alt={item.user.id} />}
+                title={<>
+                  <Typography variant="body2" color="text.primary">{item.user.name}</Typography>
+                  <Typography variant="body1" color="text.secondary">{new Date(item.time_created).toLocaleDateString()}</Typography>
+                </>}
+                align="left"
+              />
+              <img src={yelpIcon} style={{height: "18px", width: "auto", position: "absolute", bottom: 10, right: 10, opacity: ".75"}}></img>
             </CardActionArea>
            </Card>
-           {/* <Card>
-              <CardHeader 
-                avatar={ <IconButton><Avatar src={item.user.image_url} alt={item.user.id}/></IconButton>}
-                title={<Typography variant="h5" align='left' fontWeight="regular" color="textPrimary">{item.user.name}</Typography>}
-                subheader={<Rating name="read-only" value={item.rating} readOnly precision={0.5} size="small"/>}
-              />
-              <CardContent>
-              <Typography variant="body2" color="text.secondary">{item.text}</Typography>
-              </CardContent>
-           </Card> */}
           </Grid>
         ))}
-        
+        {reviews && <Grid item xs={12} align={"right"}>
+          <Button variant="outlined" color="secondary" size="large" sx={{py: 1, px:3}} href={reviews[0].url}>See more reviews on Yelp</Button>
+        </Grid>}
       </Grid>
     </Container>
   )
