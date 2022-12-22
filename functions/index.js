@@ -2,18 +2,6 @@ const functions = require("firebase-functions");
 const request = require("request-promise");
 const cors = require("cors")({origin: true});
 
-exports.helloWorld = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    functions.logger.info("Hello logs!", {structuredData: true});
-    res.send({
-      data: `key is ${process.env.YELP_API_KEY || "null"}`,
-      yelp: `key is ${process.env.YELP_API_KEY || "null"}`,
-      yelpKey: process.env.YELP_API_KEY,
-      test: "yes",
-    });
-  });
-});
-
 exports.yelpReviews = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
     request({
@@ -26,7 +14,17 @@ exports.yelpReviews = functions.https.onRequest((req, res) => {
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
       },
     }).then((response) => res.send({data: response}));
-  // res.send({data: });
+  });
+});
+
+exports.getImagekitKeys = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    res.send({
+      data: {
+        urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
+        publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+      },
+    });
   });
 });
 
