@@ -5,7 +5,6 @@ import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Button, 
 import yelpIcon from "../assets/yelp_transparent.png"
 const YelpReviews = () => {
   const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
-  console.log(reviews)
   useEffect(() => {
     // const helloWorld = httpsCallable(functions, "yelpReviews")
     // helloWorld().then((res) => {

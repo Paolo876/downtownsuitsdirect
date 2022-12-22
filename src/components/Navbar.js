@@ -13,7 +13,6 @@ const pages = [
 
 const Navbar = () => {
   const navigate = useNavigate();
-
   return (
     <AppBar position="static" className='navbar'>
       <Container maxWidth="xl">
