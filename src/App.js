@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import Services from "./pages/Services"
+import Gallery from './pages/Gallery';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <Routes>
         <Route element={<Home />} path="/"/>
+        <Route element={<Gallery />} path="/gallery"/>
         <Route element={<About />} path="/about"/>
         <Route element={<Contact />} path="/contact"/>
         <Route element={<Services />} path="/services"/>
