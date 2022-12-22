@@ -31,7 +31,7 @@ const StoreInformation = ({ document }) => {
                         <Button href={document.yelp} color='info'><img src={yelpIcon} style={{height: "48px", padding: "0 1em"}}/></Button>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
-                        <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular" sx={{py: 1, px:3}}>
+                        <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular">
                             <CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment
                         </PrimaryButton>
                     </Grid>
@@ -49,7 +49,7 @@ const StoreInformation = ({ document }) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
-                        <PrimaryButton variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}} >
+                        <PrimaryButton variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl}>
                             <PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions
                         </PrimaryButton>
                     </Grid>

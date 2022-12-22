@@ -23,7 +23,7 @@ const YelpReviews = () => {
         </Grid>
         {reviews && reviews.map(item => (
           <Grid item xs={12} key={item.id}>
-           <Card sx={{position: "relative"}} variant="primary">
+           <Card sx={{position: "relative", boxShadow: 1}} variant="primary">
             <CardActionArea href={item.url}>
               <CardContent>
                 <Rating name="read-only" value={item.rating} readOnly precision={0.5} size="large" sx={{my: 1}}/>
@@ -43,8 +43,8 @@ const YelpReviews = () => {
            </Card>
           </Grid>
         ))}
-        {reviews && <Grid item xs={12} align={"right"}>
-          <PrimaryButton variant="outlined" color="secondary" size="large" sx={{py: 1, px:3}} href={reviews[0].url}>
+        {reviews && <Grid item xs={12} align={"right"} sx={{my: 2}}>
+          <PrimaryButton variant="outlined" color="secondary" size="large" href={reviews[0].url}>
             See more reviews on Yelp
           </PrimaryButton>
         </Grid>}

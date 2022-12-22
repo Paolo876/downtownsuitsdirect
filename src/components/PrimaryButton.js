@@ -5,7 +5,7 @@ import "./PrimaryButton.scss"
 const PrimaryButton = (props) => {
   return (
     <div className="primary-button">
-        <Button {...props} >
+        <Button {...props} sx={{ py: 1, px:3 }}>
             {props.children}
         </Button>
     </div>
