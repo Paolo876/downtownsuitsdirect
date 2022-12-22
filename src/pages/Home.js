@@ -1,5 +1,6 @@
 import React from 'react'
 import DocumentHead from "../components/DocumentHead"
+import GalleryShowcase from '../components/GalleryShowcase';
 import Navbar from "../components/Navbar"
 import StoreInformation from '../components/StoreInformation'
 import YelpReviews from '../components/YelpReviews';
@@ -13,6 +14,7 @@ const Home = () => {
       <DocumentHead title="Downtown Suits Direct | Home"/>
       <Navbar/>
       {document && <StoreInformation document={document}/>}
+      <GalleryShowcase/>
       <YelpReviews/>
     </>
   )

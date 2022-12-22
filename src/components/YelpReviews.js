@@ -3,6 +3,7 @@ import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Button, CardContent, CardActionArea } from '@mui/material';
 import yelpIcon from "../assets/yelp_transparent.png"
+
 const YelpReviews = () => {
   const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
   useEffect(() => {
