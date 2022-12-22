@@ -1,0 +1,11 @@
+.primary-button {
+    button, a {
+        border-radius: 0;
+        border-width: 3px;
+        &:hover{
+            border-radius: 0;
+            border-width: 3px;  
+        }
+    }
+
+}

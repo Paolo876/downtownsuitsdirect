@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
+import PrimaryButton from './PrimaryButton';
 import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Button, CardContent, CardActionArea } from '@mui/material';
 import yelpIcon from "../assets/yelp_transparent.png"
 
@@ -43,7 +44,9 @@ const YelpReviews = () => {
           </Grid>
         ))}
         {reviews && <Grid item xs={12} align={"right"}>
-          <Button variant="outlined" color="secondary" size="large" sx={{py: 1, px:3}} href={reviews[0].url}>See more reviews on Yelp</Button>
+          <PrimaryButton variant="outlined" color="secondary" size="large" sx={{py: 1, px:3}} href={reviews[0].url}>
+            See more reviews on Yelp
+          </PrimaryButton>
         </Grid>}
       </Grid>
     </Container>

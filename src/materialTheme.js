@@ -62,9 +62,9 @@ export const theme =createTheme(
         fontWeight: 400,
         },
         button: {
-        fontFamily: 'Montserrat',
-        fontWeight: 500,
-        lineHeight: 1.5,
+            fontFamily: 'Montserrat',
+            fontWeight: 500,
+            lineHeight: 1.5,
         },
     },
     }

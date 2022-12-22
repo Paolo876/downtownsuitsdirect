@@ -1,3 +1,4 @@
+import PrimaryButton from './PrimaryButton';
 import { Container, Grid, Button, List, ListItem, ListItemText, Typography } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
@@ -30,7 +31,9 @@ const StoreInformation = ({ document }) => {
                         <Button href={document.yelp} color='info'><img src={yelpIcon} style={{height: "48px", padding: "0 1em"}}/></Button>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
-                        <Button  variant='outlined' color='secondary' fontWeight="regular" sx={{py: 1, px:3}}><CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment</Button>
+                        <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular" sx={{py: 1, px:3}}>
+                            <CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment
+                        </PrimaryButton>
                     </Grid>
                 </Grid>
             </Grid>
@@ -46,7 +49,9 @@ const StoreInformation = ({ document }) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
-                        <Button variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}}><PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions</Button>
+                        <PrimaryButton variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl} sx={{py: 1, px:3}} >
+                            <PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions
+                        </PrimaryButton>
                     </Grid>
                 </Grid>
             </Grid>
