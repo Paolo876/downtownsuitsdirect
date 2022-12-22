@@ -5,8 +5,9 @@ import "./Navbar.scss";
 
 const pages = [
   {name: "home", url: "/"},
-  {name: "about", url: "/about"},
+  {name: "gallery", url: "/gallery"},
   {name: "services", url: "/services"},
+  {name: "about", url: "/about"},
   {name: "contact", url: "/contact"},
 ];
 
