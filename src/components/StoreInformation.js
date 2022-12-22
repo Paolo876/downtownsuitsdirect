@@ -8,7 +8,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import yelpIcon from "../assets/yelp_icon.png"
 const StoreInformation = ({ document }) => {
   return (
-    <Container className='store-information'>
+    <Container>
         <Grid container spacing={2} sx={{ my:4 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">Downtown Suits Direct</Typography>
@@ -53,7 +53,7 @@ const StoreInformation = ({ document }) => {
             </Grid>
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Hours:</Typography>
-                <List sx={{width: '100%', maxWidth: 360,}}>
+                <List sx={{width: '100%', maxWidth: 360, py: 0}} >
                     {document["store-hours"].map(item => (
                         <ListItem key={item.day} sx={{my:1, p:0}}  alignItems="center" ><ListItemText primary={item.day}/> {item.from} - {item.to}</ListItem>
                     ))}
