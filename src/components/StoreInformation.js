@@ -7,7 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
 import yelpIcon from "../assets/yelp_icon.png"
-const StoreInformation = ({ document }) => {
+const StoreInformation = ({ data }) => {
   return (
     <Container sx={{ my:4 }}>
         <Grid container spacing={2} sx={{ mt:2 }}>
@@ -18,17 +18,17 @@ const StoreInformation = ({ document }) => {
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={6} md={12}>
-                        <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>{document.name}</Typography>
+                        <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>{data.name}</Typography>
                         <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
-                            <PhoneIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {document.phone}
+                            <PhoneIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {data.phone}
                         </Typography>
                         <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
-                            <EmailIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {document.email}
+                            <EmailIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {data.email}
                         </Typography>
                         <Typography variant="h6" align='left' fontWeight="regular" color="textPrimary">Social: </Typography>
-                        <Button href={document.social.facebook} color='info'><FacebookOutlinedIcon sx={{fontSize: "2.25em"}}/></Button>
-                        <Button href={document.social.facebook} color='info'><InstagramIcon sx={{fontSize: "2.25em"}}/></Button>
-                        <Button href={document.yelp} color='info'><img src={yelpIcon} style={{height: "48px", padding: "0 1em"}}/></Button>
+                        <Button href={data.social.facebook} color='info'><FacebookOutlinedIcon sx={{fontSize: "2.25em"}}/></Button>
+                        <Button href={data.social.facebook} color='info'><InstagramIcon sx={{fontSize: "2.25em"}}/></Button>
+                        <Button href={data.yelp} color='info'><img src={yelpIcon} style={{height: "48px", padding: "0 1em"}}/></Button>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
                         <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular">
@@ -42,14 +42,14 @@ const StoreInformation = ({ document }) => {
                     <Grid item xs={6} md={12}>
                         <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Address:</Typography>
                         <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
-                            {document.address.address1} {document.address.address2}
+                            {data.address.address1} {data.address.address2}
                         </Typography>
                         <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
-                            {document.address.city}, {document.address.state} {document.address.zip}
+                            {data.address.city}, {data.address.state} {data.address.zip}
                         </Typography>
                     </Grid>
                     <Grid item xs={6} md={12} sx={{mt:5}} >
-                        <PrimaryButton variant='outlined' color='secondary' fontWeight="regular" href={document.address.googleMapUrl}>
+                        <PrimaryButton variant='outlined' color='secondary' fontWeight="regular" href={data.address.googleMapUrl}>
                             <PlaceIcon sx={{mr: 1}} fontSize="medium"/> Get Directions
                         </PrimaryButton>
                     </Grid>
@@ -58,7 +58,7 @@ const StoreInformation = ({ document }) => {
             <Grid item xs={12} md={4} sx={{mt:3}}>
                 <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Hours:</Typography>
                 <List sx={{width: '100%', maxWidth: 360, py: 0}} >
-                    {document["store-hours"].map(item => (
+                    {data["store-hours"].map(item => (
                         <ListItem key={item.day} sx={{my:1, p:0}}  alignItems="center" ><ListItemText primary={item.day}/> {item.from} - {item.to}</ListItem>
                     ))}
                 </List>
