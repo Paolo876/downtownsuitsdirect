@@ -15,7 +15,7 @@ const Home = () => {
       <DocumentHead title="Downtown Suits Direct | Home"/>
       <Navbar/>
       <StoreInformation data={documents.find(item => item.id === "information")}/>
-      <GalleryShowcase/>
+      <GalleryShowcase data={documents.find(item => item.id === "gallery")}/>
       <YelpReviews/>
     </>
   )
