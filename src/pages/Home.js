@@ -5,13 +5,11 @@ import Navbar from "../components/Navbar"
 import StoreInformation from '../components/StoreInformation'
 import YelpReviews from '../components/YelpReviews';
 import LoadingPage from '../components/LoadingPage';
-import { useDocument } from '../hooks/useDocuments';
 import { useCollection } from '../hooks/useCollection';
 const Home = () => {
-  // const { document, error, isLoading } = useDocument("store-data", "information");
-  const { documents } = useCollection("store-data")
+  const { documents, isLoading } = useCollection("store-data")
 
-  return <LoadingPage/>
+  if(isLoading) return <LoadingPage/>
   if(documents) return (
     <>
       <DocumentHead title="Downtown Suits Direct | Home"/>

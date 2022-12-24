@@ -5,11 +5,16 @@ import { Grid, Typography, Paper, Button, ImageList, ImageListItem, Container, F
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import "./GalleryShowcase.scss";
-import PrimaryButton from './PrimaryButton';
+
+const checkDevice = () => {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return true
+  return false
+}
 
 const GalleryShowcase = ({ data }) => {
   const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
-  const [ showOverlay, setShowOverlay ] = useState(false)
+  const [ showOverlay, setShowOverlay ] = useState(false);
+  const isDeviceMobile = checkDevice()
   // useEffect(() => {
   //   httpsCallable(functions, "getImagekitKeys")().then((res) => {
   //     // setImagekitKeys(res.data)
@@ -17,7 +22,7 @@ const GalleryShowcase = ({ data }) => {
   // }, [])
   const images = data.images.slice(0, 6)
   return (
-    <div className='gallery-showcase' onMouseEnter={() => setShowOverlay(true)} onMouseLeave={() => setShowOverlay(false)}>
+    <div className='gallery-showcase' onMouseEnter={isDeviceMobile ? null : () => setShowOverlay(true)} onMouseLeave={isDeviceMobile ? null : () => setShowOverlay(false)}>
       <div className='gallery-container' >
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
@@ -26,7 +31,7 @@ const GalleryShowcase = ({ data }) => {
             </Grid>
           ))}
         </Grid>
-        <Fade in={showOverlay} timeout={{enter: 800, exit: 500}}>
+        <Fade in={isDeviceMobile || showOverlay} timeout={{enter: 800, exit: 500}}>
           <div className='overlay-container'>
               <div className='overlay'>
                 {/* <Typography Typography variant="h2" align='center' fontWeight="regular" fontSize="1.8em" mb={5}>Gallery</Typography> */}
