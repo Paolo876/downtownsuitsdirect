@@ -60,3 +60,13 @@
         }
     }
 }
+@media (max-width: 769px) {
+    .gallery-showcase {
+        img {
+            border-left: 1px solid $dark-color;
+            border-right: 1px solid $dark-color;
+            width: auto;
+
+        }
+    }
+  }

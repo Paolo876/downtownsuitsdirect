@@ -5,7 +5,7 @@ import { Grid, Typography, Paper, Button, ImageList, ImageListItem, Container, F
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import "./GalleryShowcase.scss";
-
+import generateRandomNumbersFromArray from '../utils/generateRandomNumbersFromArray';
 const checkDevice = () => {
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return true
   return false
@@ -14,38 +14,36 @@ const checkDevice = () => {
 const GalleryShowcase = ({ data }) => {
   const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
   const [ showOverlay, setShowOverlay ] = useState(false);
+  const [ images, setImages ] = useState(null)
   const isDeviceMobile = checkDevice()
   // useEffect(() => {
   //   httpsCallable(functions, "getImagekitKeys")().then((res) => {
   //     // setImagekitKeys(res.data)
   //   })
   // }, [])
-  const images = data.images.slice(0, 6)
-  return (
+  useEffect(() => {
+    if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 769 ? 4 : 6).map(item => data.images[item]))
+    
+    
+  }, [images])
+
+  if(images) return (
     <div className='gallery-showcase' onMouseEnter={isDeviceMobile ? null : () => setShowOverlay(true)} onMouseLeave={isDeviceMobile ? null : () => setShowOverlay(false)}>
-      <div className='gallery-container' >
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
-            <Grid item xs={4} key={image} sx={{px: {xs: 0, md:1}}}>
-              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image}/>
+            <Grid item xs={window.innerWidth < 769 ? 6 :4} key={image} sx={{px: {xs: 0, md:1}}}>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image} transformation={[{ height: 200, width: 350 }]}/>
             </Grid>
           ))}
         </Grid>
         <Fade in={isDeviceMobile || showOverlay} timeout={{enter: 800, exit: 500}}>
           <div className='overlay-container'>
               <div className='overlay'>
-                {/* <Typography Typography variant="h2" align='center' fontWeight="regular" fontSize="1.8em" mb={5}>Gallery</Typography> */}
                 <h2>Gallery</h2>
-                <hr/>
                 <Link to="/gallery">Click here to see more photos of the store</Link>
-                <hr/>
-                {/* <Typography Typography variant="body2" align='center' fontWeight="light" fontSize="1.5em" mb={8}>See more photos of the store at the gallery page.</Typography> */}
-                {/* <PrimaryButton variant="outlined" color="secondary" size="large" href="/gallery">Click here to see more photos of the store</PrimaryButton> */}
               </div>
           </div>
         </Fade>
-
-      </div>
     </div>
   )
 }
