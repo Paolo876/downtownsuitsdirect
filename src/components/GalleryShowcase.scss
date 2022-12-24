@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .gallery-showcase {
-    background-color: #1c1c1c;
+    background-color: $dark-color;
     padding: 10px 0;
     position: relative;
     overflow: hidden;
@@ -9,8 +9,8 @@
         object-fit: cover;
         height: 200px;
         width: 350px;
-        border-left: 10px solid #1c1c1c;
-        border-right: 10px solid #1c1c1c;
+        border-left: 10px solid $dark-color;
+        border-right: 10px solid $dark-color;
         filter: grayscale(.5);
         transition: all 500ms ease-in-out;
         &:hover{
