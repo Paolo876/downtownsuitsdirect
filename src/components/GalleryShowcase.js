@@ -16,18 +16,13 @@ const GalleryShowcase = ({ data }) => {
   //   })
   // }, [])
   const images = data.images.slice(0, 6)
-  // console.log(images)
   return (
     <div className='gallery-showcase' onMouseEnter={() => setShowOverlay(true)} onMouseLeave={() => setShowOverlay(false)}>
-      <Container className='gallery-container'>
-        <Grid container sx={{mx: "auto", width: "1000px"}} spacing={.5} alignItems="center">
+      <div className='gallery-container' >
+        <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
-            <Grid item xs={4} key={image} sx={{px: 1}}>
-              <IKImage
-                urlEndpoint={imagekitKeys.urlEndpoint}
-                src={image}
-                style={{objectFit: "cover", width: "350px", height: "200px"}}
-              />
+            <Grid item xs={4} key={image} sx={{px: {xs: 0, md:1}}}>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image}/>
             </Grid>
           ))}
         </Grid>
@@ -45,7 +40,7 @@ const GalleryShowcase = ({ data }) => {
           </div>
         </Fade>
 
-      </Container>
+      </div>
     </div>
   )
 }
