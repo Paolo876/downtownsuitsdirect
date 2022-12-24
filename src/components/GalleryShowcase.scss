@@ -1,3 +1,24 @@
 .gallery-showcase {
-    
+    background-color: #1c1c1c;
+    padding: 10px;
+    filter: grayscale(.6);
+    // overflow: hidden;
+    // z-index: -2;
+    // position: relative;
+    .gallery-container{
+        // z-index: -1;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // right: 8em;
+        // transform: translate(-50%, -50%);
+        // height: 100vh;
+    }
+    img {
+        border-left: 10px solid #1c1c1c;
+        border-right: 10px solid #1c1c1c;
+    }
+    button {
+        color: "white" !important;
+    }
 }

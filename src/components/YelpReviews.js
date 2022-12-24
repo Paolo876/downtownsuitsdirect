@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import PrimaryButton from './PrimaryButton';
-import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Button, CardContent, CardActionArea } from '@mui/material';
+import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Paper, CardContent, CardActionArea } from '@mui/material';
 import yelpIcon from "../assets/yelp_transparent.png"
 
 const YelpReviews = () => {
@@ -15,8 +15,9 @@ const YelpReviews = () => {
   
   }, [])
   return (
-    <Container  sx={{ my:4 }}>
-      <Grid container spacing={2} sx={{ my:4 }}>
+    <Container  sx={{ mt:4 }}>
+
+      <Grid container spacing={2} sx={{ mt:4 }}>
         <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
           <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">testimonials</Typography>
           <hr/>
