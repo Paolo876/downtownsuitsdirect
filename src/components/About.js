@@ -11,10 +11,11 @@ const About = ({ storeImage, imagekitKeys }) => {
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">The Store</Typography>
                 <hr/>
             </Grid>
-            <Grid item xs={12} sm={6} sx={{mb: 2}}>
+            
+            <Grid item xs={12} md={6} sx={{mb: 2}}>
               <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={storeImage} transformation={[{ height: 280, width: 400 }]}/>
             </Grid>
-            <Grid item xs={12} sm={6} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
+            <Grid item xs={12} md={6} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="body2" gutterBottom align='center' fontWeight="light" fontSize="1em">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Laborum rem id nulla velit quaerat praesentium a nisi. \
