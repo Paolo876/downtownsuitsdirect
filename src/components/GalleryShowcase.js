@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { IKImage } from 'imagekitio-react';
-import { Grid, Typography, Paper, Button, ImageList, ImageListItem, Container, Fade } from '@mui/material';
-import { functions } from '../firebase/config';
-import { httpsCallable } from 'firebase/functions';
-import "./GalleryShowcase.scss";
+import { Grid, Fade } from '@mui/material';
 import generateRandomNumbersFromArray from '../utils/generateRandomNumbersFromArray';
+import "./GalleryShowcase.scss";
+
 const checkDevice = () => {
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return true
   return false
 }
 
-const GalleryShowcase = ({ data }) => {
-  // const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
-  const [ imagekitKeys, setImagekitKeys ] = useState(null)
+const GalleryShowcase = ({ data, imagekitKeys }) => {
   const [ showOverlay, setShowOverlay ] = useState(false);
   const [ images, setImages ] = useState(null)
   const isDeviceMobile = checkDevice()
-  useEffect(() => {
-    httpsCallable(functions, "getImagekitKeys")().then((res) => {
-      setImagekitKeys(res.data)
-    })
-  }, [])
+
   useEffect(() => {
     if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 769 ? 4 : 6).map(item => data.images[item]))
   }, [images])
