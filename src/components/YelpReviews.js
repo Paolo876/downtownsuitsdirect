@@ -6,15 +6,15 @@ import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Paper, C
 import yelpIcon from "../assets/yelp_transparent.png"
 
 const YelpReviews = () => {
-  const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
+  const [ reviews, setReviews ] = useState(null)
+  // const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
   useEffect(() => {
-    // const helloWorld = httpsCallable(functions, "yelpReviews")
-    // helloWorld().then((res) => {
-    //     localStorage.setItem("dsdReviews", JSON.stringify(JSON.parse(res.data).reviews))
-    // })
+    httpsCallable(functions, "yelpReviews")().then((res) => {
+        setReviews(JSON.parse(res.data).reviews)
+    })
   
   }, [])
-  return (
+  if(reviews) return (
     <Container  sx={{ mt:4 }}>
 
       <Grid container spacing={2} sx={{ mt:4 }}>

@@ -16,11 +16,11 @@ const Navbar = () => {
   return (
     <AppBar position="static" className='navbar'>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{display: "flex", flexDirection: "column", height:350, alignItems:"center", justifyContent: "center"}}>
+        <Toolbar disableGutters sx={{display: "flex", flexDirection: "column", height: 350, alignItems:"center", justifyContent: "center"}}>
           <Fade in={true} timeout={{enter: 1200}} sx={{transitionDelay: 5000}}>
-            <Box sx={{ flexGrow: 1, display: "flex", alignItems: "flex-end"}}><Button href="/"><img src={logo} style={{width: "500px", height: "auto"}}/></Button></Box>
+            <Box sx={{ flexGrow: 1, display: "flex", alignItems: "flex-end"}}><Button href="/"><img src={logo} className="logo"/></Button></Box>
           </Fade>
-          <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "row", gap: 3, alignItems:"flex-end"}}>
+          <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "row", gap: 0, alignItems:"flex-end"}} className="links-container">
             {pages.map((page) => (
               <Button key={page.name} onClick={() => navigate(page.url)} sx={{ mt: 2, mb: 1, color: 'white', display: 'block'}}>
                 {page.name}

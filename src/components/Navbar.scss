@@ -18,4 +18,39 @@
             opacity: .5;
         }
     }
+    .logo {
+        width: 500px;
+        height: auto;
+    }
+    .links-container button {
+        margin: .5em .5em;
+    }
+}
+
+@media (max-width: 769px) {
+    .navbar{
+        .logo {
+            max-width: 500px;
+
+        }
+        .links-container button {
+            margin: .25em .25em;
+        }
+    }
+
+}
+
+@media (max-width: 570px) {
+    .navbar{
+        .logo {
+            padding-top: 2em;
+            max-width: 350px;
+
+        }
+        .links-container button {
+            margin:  .05em;
+            font-size: .8em;
+        }
+    }
+
 }

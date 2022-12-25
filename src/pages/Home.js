@@ -6,6 +6,7 @@ import StoreInformation from '../components/StoreInformation'
 import YelpReviews from '../components/YelpReviews';
 import LoadingPage from '../components/LoadingPage';
 import { useCollection } from '../hooks/useCollection';
+import About from '../components/About';
 const Home = () => {
   const { documents, isLoading } = useCollection("store-data")
 
@@ -16,6 +17,8 @@ const Home = () => {
       <Navbar/>
       <StoreInformation data={documents.find(item => item.id === "information")}/>
       <GalleryShowcase data={documents.find(item => item.id === "gallery")}/>
+      <About/>
+
       <YelpReviews/>
     </>
   )

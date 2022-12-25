@@ -12,22 +12,21 @@ const checkDevice = () => {
 }
 
 const GalleryShowcase = ({ data }) => {
-  const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
+  // const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
+  const [ imagekitKeys, setImagekitKeys ] = useState(null)
   const [ showOverlay, setShowOverlay ] = useState(false);
   const [ images, setImages ] = useState(null)
   const isDeviceMobile = checkDevice()
-  // useEffect(() => {
-  //   httpsCallable(functions, "getImagekitKeys")().then((res) => {
-  //     // setImagekitKeys(res.data)
-  //   })
-  // }, [])
+  useEffect(() => {
+    httpsCallable(functions, "getImagekitKeys")().then((res) => {
+      setImagekitKeys(res.data)
+    })
+  }, [])
   useEffect(() => {
     if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 769 ? 4 : 6).map(item => data.images[item]))
-    
-    
   }, [images])
 
-  if(images) return (
+  if(images && imagekitKeys) return (
     <div className='gallery-showcase' onMouseEnter={isDeviceMobile ? null : () => setShowOverlay(true)} onMouseLeave={isDeviceMobile ? null : () => setShowOverlay(false)}>
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
