@@ -9,19 +9,18 @@ import { useCollection } from '../hooks/useCollection';
 import About from '../components/About';
 const Home = () => {
   const { documents, isLoading } = useCollection("store-data")
-
   if(isLoading) return <LoadingPage/>
-  if(documents) return (
-    <>
+  if(documents) {
+    const information = documents.find(item => item.id === "information");
+    const gallery = documents.find(item => item.id === "gallery");
+    return <>
       <DocumentHead title="Downtown Suits Direct | Home"/>
       <Navbar/>
-      <StoreInformation data={documents.find(item => item.id === "information")}/>
-      <GalleryShowcase data={documents.find(item => item.id === "gallery")}/>
-      <About/>
-
+      <StoreInformation data={information}/>
+      <GalleryShowcase data={gallery}/>
+      <About storeImage={information["store-image"]}/>
       <YelpReviews/>
-    </>
-  )
+    </>}
 }
 
 export default Home

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Grid, Typography } from '@mui/material'
 
-const About = () => {
+const About = ({ storeImage}) => {
+    console.log(storeImage)
   return (
     <Container sx={{ my:4 }}>
         <Grid container spacing={2} sx={{ mt:2 }}>
