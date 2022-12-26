@@ -19,7 +19,7 @@ const GalleryShowcase = ({ data, imagekitKeys }) => {
     if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 769 ? 4 : 6).map(item => data.images[item]))
   }, [images])
 
-  if(images && imagekitKeys) return (
+  if(images) return (
     <div className='gallery-showcase' onMouseEnter={isDeviceMobile ? null : () => setShowOverlay(true)} onMouseLeave={isDeviceMobile ? null : () => setShowOverlay(false)}>
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (

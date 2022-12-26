@@ -20,8 +20,8 @@ const Home = () => {
     })
   }, [])
   
-  if(isLoading) return <LoadingPage/>
-  if(documents) {
+  if(isLoading || !documents || !imagekitKeys) return <LoadingPage/>
+  if(documents && imagekitKeys) {
     const information = documents.find(item => item.id === "information");
     const gallery = documents.find(item => item.id === "gallery");
     return <>

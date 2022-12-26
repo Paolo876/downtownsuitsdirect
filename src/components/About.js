@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Grid, Typography } from '@mui/material'
 import { IKImage } from 'imagekitio-react';
+import PrimaryButton from './PrimaryButton';
 
 const About = ({ storeImage, imagekitKeys }) => {
-    console.log(storeImage)
   return (
     <Container sx={{ my:4 }}>
         <Grid container spacing={2} sx={{ mt:2 }}>
@@ -11,7 +11,7 @@ const About = ({ storeImage, imagekitKeys }) => {
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">The Store</Typography>
                 <hr/>
             </Grid>
-            
+
             <Grid item xs={12} md={6} sx={{mb: 2}}>
               <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={storeImage} transformation={[{ height: 280, width: 400 }]}/>
             </Grid>
@@ -23,7 +23,7 @@ const About = ({ storeImage, imagekitKeys }) => {
                     dolorem atque quisquam doloremque sequi, unde, iste quia temporibus minus consectetur. 
                     Quidem impedit excepturi iste cumque distinctio eligendi facere delectus aspernatur illum praesentium.
                 </Typography>
-
+                <PrimaryButton href="/about">asdasdsd</PrimaryButton>
             </Grid>
         </Grid>
     </Container>
