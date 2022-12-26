@@ -1,7 +1,7 @@
 @import "../variables.scss";
 .navbar {
-    background-color: #1c1c1c !important;
-
+    background-color: #1c1c1c;
+    position: relative;
     h1 {
         font-family: $secondary-font;
         font-weight: 400;
@@ -22,8 +22,13 @@
         width: 500px;
         height: auto;
     }
-    .links-container button {
-        margin: .5em .5em;
+    .links-container {
+        position: sticky;
+        top: 0;
+        background-color: #1c1c1c;
+        button {
+            margin: .5em .5em;
+        } 
     }
 }
 

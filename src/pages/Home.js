@@ -9,6 +9,7 @@ import About from '../components/About';
 import { useCollection } from '../hooks/useCollection';
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
+import Services from '../components/Services';
 
 const Home = () => {
   const { documents, isLoading } = useCollection("store-data");
@@ -30,6 +31,7 @@ const Home = () => {
       <StoreInformation data={information}/>
       <GalleryShowcase data={gallery} imagekitKeys={imagekitKeys}/>
       <About storeImage={information["store-image"]} imagekitKeys={imagekitKeys}/>
+      <Services/>
       <YelpReviews/>
     </>}
 }

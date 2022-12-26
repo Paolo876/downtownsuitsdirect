@@ -15,7 +15,7 @@ const YelpReviews = () => {
   
   }, [])
   if(reviews) return (
-    <Container  sx={{ mt: 5 }}>
+    <Container sx={{ py: {xs: 2, md:5} }}>
 
       <Grid container spacing={2} sx={{ py:4 }}>
         <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
