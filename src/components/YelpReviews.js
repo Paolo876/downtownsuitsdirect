@@ -19,7 +19,7 @@ const YelpReviews = () => {
 
       <Grid container spacing={2} sx={{ py:4 }}>
         <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
-          <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">testimonials</Typography>
+          <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">see what my clients say about me</Typography>
           <hr/>
         </Grid>
         {reviews && reviews.map(item => (
