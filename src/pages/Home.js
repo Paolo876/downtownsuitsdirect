@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import DocumentHead from "../components/DocumentHead"
 import GalleryShowcase from '../components/GalleryShowcase';
 import Navbar from "../components/Navbar"
@@ -13,7 +13,6 @@ import Services from '../components/Services';
 
 const Home = () => {
   const { documents, isLoading } = useCollection("store-data");
-  // const [ imagekitKeys, setImagekitKeys ] = useState(JSON.parse(localStorage.getItem("imagekitKeys")))
   const [ imagekitKeys, setImagekitKeys ] = useState(null);
   useEffect(() => {
     httpsCallable(functions, "getImagekitKeys")().then((res) => {
