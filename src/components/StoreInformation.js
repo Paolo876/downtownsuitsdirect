@@ -18,7 +18,7 @@ const StoreInformation = ({ data }) => {
             </Grid>
             <Grid item xs={12} sm={6} md={4} sx={{mt:3}}>
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item xs={12}>
                         <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>{data.name}</Typography>
                         <Typography paragraph align='left' fontWeight="regular" color="textSecondary">
                             <PhoneIcon sx={{mr: 1}} style={{verticalAlign:"middle"}}/> {data.phone}

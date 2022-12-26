@@ -16,14 +16,14 @@ const GalleryShowcase = ({ data, imagekitKeys }) => {
   const isDeviceMobile = checkDevice()
 
   useEffect(() => {
-    if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 769 ? 4 : 6).map(item => data.images[item]))
+    if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 500 ? 4 : 6).map(item => data.images[item]))
   }, [images])
 
   if(images) return (
     <div className='gallery-showcase' onMouseEnter={isDeviceMobile ? null : () => setShowOverlay(true)} onMouseLeave={isDeviceMobile ? null : () => setShowOverlay(false)}>
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
-            <Grid item xs={window.innerWidth < 769 ? 6 :4} key={image} sx={{px: {xs: 0, md:1}}}>
+            <Grid item xs={window.innerWidth < 500 ? 6 :4} key={image} sx={{px: {xs: 0, md:1}}}>
               <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image} transformation={[{ height: 200, width: 350 }]}/>
             </Grid>
           ))}
