@@ -8,7 +8,7 @@ import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 
 const Gallery = () => {
-  
+
   const { document, isLoading } = useDocument("store-data", "gallery")
   const [ imagekitKeys, setImagekitKeys ] = useState(null);
   useEffect(() => {
@@ -17,15 +17,15 @@ const Gallery = () => {
     })
   }, [])
 
-  if(isLoading) return <LoadingPage/>
-  if(!isLoading && document) return (
+  if(isLoading && !imagekitKeys) return <LoadingPage/>
+  if(!isLoading && document && imagekitKeys) return (
     <>
         <Navbar/>
-          <Container sx={{ py: {xs: 2, md:5} }}>
-            <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em"}}>Gallery</Typography>
+          <Container sx={{ pt: {xs: 2, md:5} }}>
+            <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em" }}>Gallery</Typography>
             <hr/>
-            <GalleryImages imagekitKeys={imagekitKeys} images={document.images}/>
           </Container>
+          <GalleryImages imagekitKeys={imagekitKeys} images={document.images}/>
     </>
   )
 }
