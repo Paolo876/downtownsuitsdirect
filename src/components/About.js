@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Grid, Typography } from '@mui/material'
 import { IKImage } from 'imagekitio-react';
 import PrimaryButton from './PrimaryButton';
 
 const About = ({ storeImage, imagekitKeys }) => {
   return (
-    <Container sx={{ my:4 }}>
+    <Container sx={{ py: 5 }}>
         <Grid container spacing={2} sx={{ mt:2 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">The Store</Typography>
@@ -23,7 +24,7 @@ const About = ({ storeImage, imagekitKeys }) => {
                     dolorem atque quisquam doloremque sequi, unde, iste quia temporibus minus consectetur. 
                     Quidem impedit excepturi iste cumque distinctio eligendi facere delectus aspernatur illum praesentium.
                 </Typography>
-                <PrimaryButton href="/about">asdasdsd</PrimaryButton>
+                <Link variant="outlined" color="secondary" size="large" to="/about" >asdasdsd</Link>
             </Grid>
         </Grid>
     </Container>
