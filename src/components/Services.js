@@ -7,7 +7,6 @@ import "./Services.scss"
 
 const Services = () => {
   const theme = useTheme();
-  console.log(theme)
   return (
     <div className='services'>
         <Container sx={{ py: {xs: 2, md:5} }}>

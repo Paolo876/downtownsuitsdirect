@@ -22,10 +22,7 @@
         width: 500px;
         height: auto;
     }
-    .links-container {
-        position: sticky;
-        top: 0;
-        background-color: #1c1c1c;
+    #links-container {
         button {
             margin: .5em .5em;
         } 
@@ -38,7 +35,7 @@
             max-width: 500px;
 
         }
-        .links-container button {
+        #links-container button {
             margin: .25em .25em;
         }
     }
@@ -52,7 +49,7 @@
             max-width: 350px;
 
         }
-        .links-container button {
+        #links-container button {
             margin:  .05em;
             font-size: .8em;
         }
