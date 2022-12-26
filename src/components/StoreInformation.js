@@ -6,7 +6,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaceIcon from '@mui/icons-material/Place';
-import yelpIcon from "../assets/yelp_icon.png"
+import yelpIcon from "../assets/yelp_icon.png";
+
 const StoreInformation = ({ data }) => {
   return (
     <Container sx={{ py: 5 }}>

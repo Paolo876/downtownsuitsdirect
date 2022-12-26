@@ -6,25 +6,25 @@ import PrimaryButton from './PrimaryButton';
 
 const About = ({ storeImage, imagekitKeys }) => {
   return (
-    <Container sx={{ py: 5 }}>
-        <Grid container spacing={2} sx={{ mt:2 }}>
+    <Container sx={{ py: 4 }}>
+        <Grid container spacing={4} sx={{ mt:2 }} justifyContent="center" alignItems={"flex-start"}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize="1.8em">The Store</Typography>
                 <hr/>
             </Grid>
 
-            <Grid item xs={12} md={6} sx={{mb: 2}}>
-              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={storeImage} transformation={[{ height: 280, width: 400 }]}/>
+            <Grid item xs={12} md={6} sx={{mb: 2, display: "flex", justifyContent: {xs: "center", md: "flex-end"} }}>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={storeImage} transformation={[{ height: 280, width: 380 }]}/>
             </Grid>
-            <Grid item xs={12} md={6} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
-                <Typography variant="body2" gutterBottom align='center' fontWeight="light" fontSize="1em">
+            <Grid item xs={12} md={6} sx={{letterSpacing: ".1em", mb: 2, }}>
+                <Typography variant="body2" gutterBottom align='left' fontWeight="light" fontSize="1em">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Laborum rem id nulla velit quaerat praesentium a nisi. \
                     Ab accusantium neque facilis aut amet autem assumenda ex dignissimos, 
                     dolorem atque quisquam doloremque sequi, unde, iste quia temporibus minus consectetur. 
                     Quidem impedit excepturi iste cumque distinctio eligendi facere delectus aspernatur illum praesentium.
                 </Typography>
-                <Link variant="outlined" color="secondary" size="large" to="/about" >asdasdsd</Link>
+                <PrimaryButton component={Link} variant="outlined" color="secondary" size="large" to="/about" sx={{mt: 4}}>Read more about the store</PrimaryButton>
             </Grid>
         </Grid>
     </Container>
