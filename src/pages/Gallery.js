@@ -21,7 +21,7 @@ const Gallery = () => {
   if(!isLoading && document && imagekitKeys) return (
     <>
         <Navbar/>
-          <Container sx={{ pt: {xs: 2, md:5} }}>
+          <Container sx={{ pt: 5 }}>
             <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em" }}>Gallery</Typography>
             <hr/>
           </Container>
