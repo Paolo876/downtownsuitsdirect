@@ -18,7 +18,7 @@ const listWidth = (breakpoints) => {
   if(window.innerWidth > breakpoints.lg) return { width: breakpoints.lg, cols: 3, imgWidth: (breakpoints.lg / 3) - 20}
   if(window.innerWidth <= breakpoints.lg && window.innerWidth > breakpoints.md) return { width: breakpoints.md, cols: 3, imgWidth: (breakpoints.md / 3) - 20} 
   if(window.innerWidth <= breakpoints.md && window.innerWidth > breakpoints.sm) return { width: breakpoints.sm, cols: 2, imgWidth: (breakpoints.sm / 2) - 20} 
-  if(window.innerWidth <= breakpoints.sm) return { width: window.innerWidth, cols: 1, imgWidth: window.innerWidth - 20} 
+  if(window.innerWidth <= breakpoints.sm) return { width: window.innerWidth, cols: 2, imgWidth: (window.innerWidth / 2) - 20} 
 }
 
 const GalleryImages = ({ imagekitKeys, images }) => {
@@ -33,8 +33,8 @@ const GalleryImages = ({ imagekitKeys, images }) => {
   }, [width])
   
   return (
-    <Grid container maxWidth={containerWidth.width} mx="auto" py={2}>
-      {images.map( item => <Grid item key={item} xs={12} sm={6} md={4}>
+    <Grid container maxWidth={containerWidth.width} mx="auto" py={4}>
+      {images.map( item => <Grid item key={item} xs={6} sm={6} md={4}>
         <button 
           style={{cursor: "pointer", border: "none", background: "none", margin: "5px", 
             width: `${containerWidth.imgWidth}px`
