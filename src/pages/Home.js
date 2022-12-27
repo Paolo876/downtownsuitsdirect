@@ -10,6 +10,7 @@ import { useCollection } from '../hooks/useCollection';
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import Services from '../components/Services';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const { documents, isLoading } = useCollection("store-data");
@@ -32,6 +33,7 @@ const Home = () => {
       <About storeImage={information["store-image"]} imagekitKeys={imagekitKeys}/>
       <Services/>
       <YelpReviews/>
+      <Footer data={information}/>
     </>}
 }
 

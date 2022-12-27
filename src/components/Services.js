@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PrimaryButton from './PrimaryButton'
-import { useTheme } from '@emotion/react'
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Grid, Typography, useTheme } from '@mui/material'
 import "./Services.scss"
 
 const Services = () => {
