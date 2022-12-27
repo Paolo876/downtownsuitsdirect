@@ -1,10 +1,11 @@
-import React from 'react';
+import { useAppContext } from '../hooks/useAppContext';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Typography } from '@mui/material'
 import { IKImage } from 'imagekitio-react';
 import PrimaryButton from './PrimaryButton';
 
-const About = ({ storeImage, imagekitKeys }) => {
+const About = () => {
+  const { imagekitKeys, information } = useAppContext();
   return (
     <Container sx={{ py: {xs: 2, md:5} }}>
         <Grid container spacing={4} sx={{ mt:2 }} justifyContent="center" alignItems={"flex-start"}>
@@ -14,7 +15,7 @@ const About = ({ storeImage, imagekitKeys }) => {
             </Grid>
 
             <Grid item xs={12} sm={6} sx={{mb: 2, display: "flex", justifyContent: {xs: "center", md: "flex-end"} }}>
-              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={storeImage} transformation={[{ height: 280, width: 380 }]}/>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={information["store-image"]} transformation={[{ height: 280, width: 380 }]}/>
             </Grid>
             <Grid item xs={12} sm={6} sx={{letterSpacing: ".1em", mb: 2, fontSize: {xs: 13, md: 15}}}>
                 <Typography variant="body2" gutterBottom align='left' fontWeight="light" fontSize="1em">

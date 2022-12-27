@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import PrimaryButton from './PrimaryButton';
-import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, Paper, CardContent, CardActionArea } from '@mui/material';
+import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, CardContent, CardActionArea } from '@mui/material';
 import yelpIcon from "../assets/yelp_transparent.png"
 
 const YelpReviews = () => {

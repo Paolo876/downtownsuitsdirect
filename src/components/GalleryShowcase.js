@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAppContext } from '../hooks/useAppContext';
 import { Link } from 'react-router-dom';
 import { IKImage } from 'imagekitio-react';
 import { Grid, Fade } from '@mui/material';
@@ -10,13 +11,14 @@ const checkDevice = () => {
   return false
 }
 
-const GalleryShowcase = ({ data, imagekitKeys }) => {
+const GalleryShowcase = () => {
+  const { gallery, imagekitKeys } = useAppContext();
   const [ showOverlay, setShowOverlay ] = useState(false);
   const [ images, setImages ] = useState(null)
   const isDeviceMobile = checkDevice()
 
   useEffect(() => {
-    if(!images) setImages(generateRandomNumbersFromArray(data.images.length, window.innerWidth < 500 ? 4 : 6).map(item => data.images[item]))
+    if(!images) setImages(generateRandomNumbersFromArray(gallery.images.length, window.innerWidth < 500 ? 4 : 6).map(item => gallery.images[item]))
   }, [images])
 
   if(images) return (
