@@ -1,5 +1,8 @@
 import { createContext, useReducer, useEffect } from 'react'
 import { useCollection } from '../hooks/useCollection';
+import { functions } from '../firebase/config';
+import { httpsCallable } from 'firebase/functions';
+
 export const AppContext = createContext()
 
 const initialState = {
@@ -12,12 +15,12 @@ const initialState = {
 
 const appReducer = (state, action) => {
     switch (action.type) {
-        // case 'LOGIN':
-        //   return { ...state, user: action.payload }
-        // case 'LOGOUT':
-        //   return { ...state, user: null }
-        // case 'AUTH_IS_READY':
-        //   return { ...state, user: action.payload, authIsReady: true }
+        case 'SET_DATA':
+          return { ...state, error: null, gallery: action.payload.gallery, information: action.payload.information }
+        case 'SET_IS_LOADING':
+          return { ...state, error: null, isLoading: action.payload }
+        case 'SET_ERROR':
+            return { ...state, error: action.payload, isLoading: false }
         // case 'ALLOW_LOGIN':
         //   return { ...state, isLoginAllowed: action.payload }
         default:
@@ -27,12 +30,16 @@ const appReducer = (state, action) => {
 
 export const AppContextProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer(appReducer, initialState);
-    const { documents, isLoading, error } = useCollection("store-data");
-    console.log(documents)
+    const { documents, error } = useCollection("store-data");
     useEffect(() => {
-        init()
+        if(documents) {
+            dispatch({ type: 'SET_DATA', payload: documents })
+            dispatch({ type: 'SET_IS_LOADING', payload: false })
+        }
+        if(!documents && !error) dispatch({ type: 'SET_IS_LOADING', payload: true })
+        if(error) dispatch({ type: 'SET_ERROR', payload: error })
     }, [documents]);
-    
+
     const init = async () => {
         //set store-data collection to state
         //get imagekit keys
