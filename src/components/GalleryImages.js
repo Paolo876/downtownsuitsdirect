@@ -4,14 +4,14 @@ import { Modal, Fade, Box, useTheme, Grid } from "@mui/material";
 import { useWindowWidth } from '../hooks/useWindowWidth';
 const style = {
   position: 'absolute',
+  width: "fit-content",
+  height: "fit-content",
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: "auto",
-  height: "auto",
   bgcolor: 'background.paper',
   border: '1px solid #000',
-  boxShadow: 24,
+  boxShadow: 25,
   p: 1,
 };
 const listWidth = (breakpoints) => {
@@ -59,7 +59,9 @@ const GalleryImages = ({ imagekitKeys, images }) => {
         closeAfterTransition
       >
         <Fade in={showModal.isVisible}>
-          <Box sx={style}><img src={showModal.data} height="100%" width="100%" style={{maxHeight: "90vh", maxWidth: "90vw"}}/></Box>
+          <Box sx={style}>
+            <img src={showModal.data} height="auto" width="auto" style={{maxHeight: "80vh", maxWidth: "80vw"}}/>
+          </Box>
         </Fade>
       </Modal>
     </Grid>
