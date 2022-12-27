@@ -8,7 +8,7 @@ const Footer = () => {
   const { information } = useAppContext();
   const theme = useTheme();
   return (
-    <div style={{backgroundColor: theme.palette.dark.main}}>
+    <div style={{backgroundColor: theme.palette.dark.main, marginTop: "2em"}}>
         <Container sx={{opacity: ".95"}}>
             <Grid container pt={1}>
                 <Grid item xs={12} sm={4} sx={{filter: "blur(80%)"}} display="flex" justifyContent={{xs: "center", sm:"flex-end"}}><img src={logo} alt="logo-small" height="75px" style={{opacity: ".65"}}/></Grid>

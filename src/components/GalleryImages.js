@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useAppContext } from "../hooks/useAppContext";
 import { IKImage } from 'imagekitio-react';
 import { Modal, Fade, Box, useTheme, Grid } from "@mui/material";
 import { useWindowWidth } from '../hooks/useWindowWidth';
@@ -21,10 +22,10 @@ const listWidth = (breakpoints) => {
   if(window.innerWidth <= breakpoints.sm) return { width: window.innerWidth, cols: 2, imgWidth: (window.innerWidth / 2) - 20} 
 }
 
-const GalleryImages = ({ imagekitKeys, images }) => {
+const GalleryImages = () => {
   const theme = useTheme();
   const width = useWindowWidth();
-
+  const { gallery: { images }, imagekitKeys } = useAppContext();
   const [ showModal, setShowModal ] = useState({isVisible: false, data: null});
   const [ containerWidth, setContainerWidth ] = useState(listWidth(theme.breakpoints.values))
 
