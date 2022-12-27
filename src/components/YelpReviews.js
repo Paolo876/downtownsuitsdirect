@@ -7,7 +7,6 @@ import yelpIcon from "../assets/yelp_transparent.png"
 
 const YelpReviews = () => {
   const [ reviews, setReviews ] = useState(null)
-  // const [ reviews, setReviews ] = useState(JSON.parse(localStorage.getItem("dsdReviews")))
   useEffect(() => {
     httpsCallable(functions, "yelpReviews")().then((res) => {
         setReviews(JSON.parse(res.data).reviews)

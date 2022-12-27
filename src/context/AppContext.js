@@ -1,9 +1,13 @@
 import { createContext, useReducer, useEffect } from 'react'
-
+import { useCollection } from '../hooks/useCollection';
 export const AppContext = createContext()
 
 const initialState = {
-
+    gallery: null,
+    information: null,
+    imagekitKeys: null,
+    isLoading: false,
+    error: null,
 };
 
 const appReducer = (state, action) => {
@@ -23,8 +27,16 @@ const appReducer = (state, action) => {
 
 export const AppContextProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer(appReducer, initialState);
+    const { documents, isLoading, error } = useCollection("store-data");
+    console.log(documents)
+    useEffect(() => {
+        init()
+    }, [documents]);
     
-
+    const init = async () => {
+        //set store-data collection to state
+        //get imagekit keys
+    }
     return (
         <AppContext.Provider value={{ ...state, dispatch }}>
           { children }
