@@ -1,17 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import { AppBar, Box, Toolbar, Container, Button, Fade} from '@mui/material'
+import { useNavigate, useLocation } from 'react-router-dom';
+import { AppBar, Box, Toolbar, Container, Button, Fade, useTheme } from '@mui/material';
 import "./Navbar.scss";
-import logo from "../assets/LOGO.png"
+import logo from "../assets/LOGO.png";
+
 const pages = [
-  {name: "home", url: "/"},
-  {name: "gallery", url: "/gallery"},
-  {name: "services", url: "/services"},
-  {name: "about", url: "/about"},
-  {name: "contact", url: "/contact"},
+  { name: "home", url: "/" },
+  { name: "gallery", url: "/gallery" },
+  { name: "services", url: "/services" },
+  { name: "about", url: "/about" },
+  { name: "contact", url: "/contact" },
 ];
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const theme = useTheme();
+  console.log(theme)
   return (
     <AppBar position="static" className='navbar'>
       <Container maxWidth="xl">
@@ -21,9 +25,11 @@ const Navbar = () => {
           </Fade>
           <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "row", gap: 0, alignItems:"flex-end"}} id="links-container">
             {pages.map((page) => (
-              <Button key={page.name} onClick={() => navigate(page.url)} sx={{ mt: 2, mb: 1, color: 'white', display: 'block'}}>
-                {page.name}
-              </Button>
+              <div key={page.name} style={{borderBottom: `2px solid ${ pathname === page.url ? theme.palette.secondary.main : "transparent" }`}}>
+                <Button key={page.name} onClick={() => navigate(page.url)} sx={{ mt: 2, mb: 1, color: 'white', display: 'block'}}>
+                  {page.name}
+                </Button>
+              </div>
             ))}
           </Box>
         </Toolbar>
@@ -33,3 +39,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+// borderBottom: `2px solid ${pathname === page.url ? "orange" : "transparent"}`
