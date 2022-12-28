@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AppBar, Box, Toolbar, Container, Button, Fade, useTheme } from '@mui/material';
+import { AppBar, Box, Toolbar, Container, Button, Fade } from '@mui/material';
 import "./Navbar.scss";
 import logo from "../assets/LOGO.png";
 
@@ -14,8 +14,6 @@ const pages = [
 const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const theme = useTheme();
-  console.log(theme)
   return (
     <AppBar position="static" className='navbar'>
       <Container maxWidth="xl">
@@ -25,7 +23,7 @@ const Navbar = () => {
           </Fade>
           <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "row", gap: 0, alignItems:"flex-end"}} id="links-container">
             {pages.map((page) => (
-              <div key={page.name} style={{borderBottom: `2px solid ${ pathname === page.url ? theme.palette.secondary.main : "transparent" }`}}>
+              <div key={page.name} style={{borderBottom: `2px solid ${ pathname === page.url ? "#af6f34" : "transparent" }`}}>
                 <Button key={page.name} onClick={() => navigate(page.url)} sx={{ mt: 2, mb: 1, color: 'white', display: 'block'}}>
                   {page.name}
                 </Button>
@@ -39,5 +37,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-// borderBottom: `2px solid ${pathname === page.url ? "orange" : "transparent"}`
