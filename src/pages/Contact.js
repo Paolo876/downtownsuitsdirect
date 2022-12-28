@@ -18,7 +18,7 @@ const Contact = () => {
         <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em" }}>Contact</Typography>
         <hr/>
         <Typography variant="body1" gutterBottom align='center' fontWeight="regular" my={2} lineHeight={1.5} px={{xs: 1, md:20}}>
-          Feel free to reach me using the contact informations provided or by filling up the form below. I'm looking forward to hear from you and I'd be happy to answer any questions and inquiries.
+          You can reach me using the contact informations provided or by submitting the inquiry form below.<br/>I'm looking forward to hear from you and I'd be happy to answer any questions and inquiries.
         </Typography>
         <Grid container my={5}>
           <Grid item xs={4} align="center">
