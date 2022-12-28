@@ -6,6 +6,7 @@ import { Container, Typography, Grid, Paper } from '@mui/material'
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
+import ContactForm from '../components/ContactForm';
 
 const Contact = () => {
   const { information } = useAppContext();
@@ -49,6 +50,7 @@ const Contact = () => {
             </Paper>
           </Grid>
         </Grid>
+        <ContactForm/>
       </Container>
       <Footer/>
     </>

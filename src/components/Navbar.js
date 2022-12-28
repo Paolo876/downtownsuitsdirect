@@ -23,7 +23,7 @@ const Navbar = () => {
           </Fade>
           <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "row", gap: 0, alignItems:"flex-end"}} id="links-container">
             {pages.map((page) => (
-              <div key={page.name} style={{borderBottom: `2px solid ${ pathname === page.url ? "#af6f34" : "transparent" }`}}>
+              <div key={page.name} style={{ borderBottom: `2px solid ${ pathname === page.url ? "#af6f34" : "transparent" }` }}>
                 <Button key={page.name} onClick={() => navigate(page.url)} sx={{ mt: 2, mb: 1, color: 'white', display: 'block'}}>
                   {page.name}
                 </Button>
