@@ -1,4 +1,5 @@
 import { useAppContext } from "../hooks/useAppContext";
+import { Link } from "react-router-dom";
 import PrimaryButton from './PrimaryButton';
 import { Container, Grid, Button, List, ListItem, ListItemText, Typography, Paper } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -13,7 +14,7 @@ const StoreInformation = () => {
   const { information } = useAppContext();
   console.log(information)
   return (
-    <Container sx={{ py: {xs: 2, md:5} }}>
+    <Container sx={{ py: {xs: 2, md:4} }}>
         <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
                 <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em"}}>Downtown Suits Direct</Typography>
@@ -37,7 +38,7 @@ const StoreInformation = () => {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sx={{my:{xs: 3, md:5}}}>
-                        <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular">
+                        <PrimaryButton  variant='outlined' color='secondary' fontWeight="regular" component={Link} to="/contact">
                             <CalendarMonthIcon sx={{mr: 1}} fontSize="medium"/>Schedule Appointment
                         </PrimaryButton>
                     </Grid>
