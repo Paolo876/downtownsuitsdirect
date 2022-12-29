@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppContext } from './hooks/useAppContext';
 import Alert from '@mui/material/Alert';
 
@@ -26,6 +26,7 @@ function App() {
         <Route element={<About />} path="/about"/>
         <Route element={<Contact />} path="/contact"/>
         <Route element={<Services />} path="/services"/>
+        <Route element={<Navigate to="/" />} path="*"/>
       </Routes>
     </>
 
