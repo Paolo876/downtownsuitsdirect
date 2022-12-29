@@ -20,7 +20,7 @@ const Contact = () => {
         <Typography variant="body1" gutterBottom align='center' fontWeight="regular" my={2} lineHeight={1.5} px={{xs: 1, md:20}}>
           You can reach me using the contact informations provided or by submitting the inquiry form below.<br/>I'm looking forward to hear from you and I'd be happy to answer any questions and inquiries.
         </Typography>
-        <Grid container my={5}>
+        <Grid container my={6}>
           <Grid item xs={4} align="center">
             <Paper  sx={{display: "flex", flexDirection: "column",alignItems: "center", justifyContent: "space-between", width: 200, height: 160, p:2}}>
               <PlaceIcon sx={{fontSize: "2.5em"}}/>
