@@ -12,7 +12,6 @@ import yelpIcon from "../assets/yelp_icon.png";
 
 const StoreInformation = () => {
   const { information } = useAppContext();
-  console.log(information)
   return (
     <Container sx={{ py: {xs: 2, md:4} }}>
         <Grid container spacing={2} sx={{ mt: 1 }}>

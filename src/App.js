@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppContext } from './hooks/useAppContext';
-import Alert from '@mui/material/Alert';
+import { Alert, Fade } from '@mui/material';
 
 //pages
 import Home from "./pages/Home";
