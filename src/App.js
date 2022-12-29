@@ -2,15 +2,17 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppContext } from './hooks/useAppContext';
 import { Alert, Fade } from '@mui/material';
 
+//components
+import LoadingPage from './components/LoadingPage';
+
 //pages
 import Home from "./pages/Home";
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import Services from "./pages/Services"
 import Gallery from './pages/Gallery';
+import Admin from './pages/Admin';
 
-//components
-import LoadingPage from './components/LoadingPage';
 
 function App() {
   // if(document.readyState === "complete") console.log("run")
@@ -26,6 +28,7 @@ function App() {
         <Route element={<About />} path="/about"/>
         <Route element={<Contact />} path="/contact"/>
         <Route element={<Services />} path="/services"/>
+        <Route element={<Admin />} path="/admin"/>
         <Route element={<Navigate to="/" />} path="*"/>
       </Routes>
     </>
