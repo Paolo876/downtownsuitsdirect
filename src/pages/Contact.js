@@ -16,7 +16,7 @@ const Contact = () => {
       <Container sx={{ py: 5 }}>
         <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em" }}>Contact</Typography>
         <hr/>
-        <Typography variant="body1" gutterBottom align='center' fontWeight="regular" my={2} lineHeight={1.5} px={{xs: 1, md:20}}>
+        <Typography variant="body1" gutterBottom align='center' fontWeight="light" my={2} lineHeight={1.5} px={{xs: 1, md:20}} sx={{fontSize: { xs: 13,sm: 16}}}>
           You can reach me using the contact informations provided or by submitting the inquiry form below.<br/>I'm looking forward to hear from you and I'd be happy to answer any questions and inquiries.
         </Typography>
         <Grid container my={6}>

@@ -16,8 +16,8 @@ const ContactForm = () => {
         <Paper sx={{display: "flex", flexDirection: "column", width: "100%", p: { xs: 2, md:5 }, mx: "auto", maxWidth: "1100px"}}>
             <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.25em", md: "1.5em" }} mb={2}>Inquiry form</Typography>
             <hr/>
-            <Grid container mt={2}>
-                <Grid item xs={12} md={6} sx={{display: "flex", flexDirection: "column", width: "100%", p: 2, justifyContent: "flex-end" }}>
+            <Grid container mt={1}>
+                <Grid item xs={12} md={6} sx={{display: "flex", flexDirection: "column", width: "100%", p: 1, justifyContent: "flex-end" }}>
                     <FormControl sx={{ my: 1.5, mt:3,  }}>
                         <InputLabel htmlFor="name">Name</InputLabel>
                         <Input id="name" type="text" required value={name} onChange={e => setName(e.target.value)}/>
@@ -31,7 +31,7 @@ const ContactForm = () => {
                         <Input id="phone" type="text" value={phone} onChange={e => setPhone(e.target.value)}/>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6} sx={{display: "flex", flexDirection: "column", width: "100%", p: 2, justifyContent: "flex-end" }}>
+                <Grid item xs={12} md={6} sx={{display: "flex", flexDirection: "column", width: "100%", p: 1, justifyContent: "flex-end" }}>
                     <TextField
                         sx={{my: 1, mt:3}}
                         label="Message"
