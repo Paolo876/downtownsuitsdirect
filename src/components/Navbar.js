@@ -19,11 +19,14 @@ const Navbar = ({ isAdmin=false }) => {
   return (
     <AppBar position="static" className='navbar'>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{display: "flex", flexDirection: "column", height: isAdmin ? 200 : 350, alignItems:"center", justifyContent: "center"}}>
+        <Toolbar disableGutters sx={{display: "flex", flexDirection: "column", height: isAdmin ? 250 : 350, alignItems:"center", justifyContent: "center"}}>
           {isAdmin ? 
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", justifyContent: "center",flexDirection: "column"}}>
-            <Typography color="white" variant="h2" mt={3}>-ADMIN-</Typography>
-            <Typography color="white" variant="body1" mt={2}>This page is reserved only for the rightful owner of this site, {information.name}.</Typography>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", justifyContent: "flex-start",flexDirection: "column"}}>
+            <Typography color="white" variant="h1" mt={3} fontSize={{xs: 35, sm: 50}}>-ADMIN-</Typography>
+            <Typography color="white" variant="body1" mt={2} align="center" lineHeight={1.5} fontSize={{xs: 14, sm: 16}}>
+              This page is reserved for the rightful owner of this site, {information.name}.<br/>
+              Please redirect back to the available pages below if you are not an admin of this site.
+            </Typography>
           </Box>
           :
           <Fade in={true} timeout={{enter: 1200}} sx={{transitionDelay: 5000}}>
