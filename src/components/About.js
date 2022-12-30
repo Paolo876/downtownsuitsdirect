@@ -15,10 +15,10 @@ const About = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} sx={{mb: 2, display: "flex", justifyContent: {xs: "center", md: "flex-end"} }}>
-              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={information["store-image"]} transformation={[{ height: 280, width: 380 }]}/>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={information["store-image"]} transformation={[{ height: 280, width: 380 }]} data-aos="fade-right" />
             </Grid>
             <Grid item xs={12} sm={6} sx={{letterSpacing: ".1em", mb: 2, fontSize: {xs: 13, md: 15}}}>
-                <Typography variant="body2" gutterBottom align='left' fontWeight="light" fontSize="1em">
+                <Typography variant="body2" gutterBottom align='left' fontWeight="light" fontSize="1em" data-aos="fade">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Laborum rem id nulla velit quaerat praesentium a nisi. \
                     Ab accusantium neque facilis aut amet autem assumenda ex dignissimos, 
