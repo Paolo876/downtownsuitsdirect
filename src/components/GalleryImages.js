@@ -3,6 +3,7 @@ import { useAppContext } from "../hooks/useAppContext";
 import { IKImage } from 'imagekitio-react';
 import { Modal, Fade, Box, useTheme, Grid } from "@mui/material";
 import { useWindowWidth } from '../hooks/useWindowWidth';
+
 const style = {
   position: 'absolute',
   width: "fit-content",
@@ -40,7 +41,9 @@ const GalleryImages = () => {
           style={{cursor: "pointer", border: "none", background: "none", margin: "5px", 
             width: `${containerWidth.imgWidth}px`
             }} 
-            onClick={() => setShowModal({isVisible: true, data: item})}>
+            onClick={() => setShowModal({isVisible: true, data: item})}
+            data-aos="fade-up"
+          >
           <IKImage 
             urlEndpoint={imagekitKeys.urlEndpoint} 
             src={item} 

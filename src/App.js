@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppContext } from './hooks/useAppContext';
-import { Alert, Fade } from '@mui/material';
-
+import { Alert } from '@mui/material';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 //components
 import LoadingPage from './components/LoadingPage';
 
@@ -17,6 +19,10 @@ import Admin from './pages/Admin';
 function App() {
   // if(document.readyState === "complete") console.log("run")
   const { isLoading, error } = useAppContext();
+
+  useEffect(() => {
+    Aos.init({ duration: 800 });
+  }, [])
   if(isLoading) return <LoadingPage/>
   if(error) return <Alert severity="error">{error}</Alert>
 

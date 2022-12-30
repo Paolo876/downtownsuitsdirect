@@ -4,19 +4,16 @@ import { httpsCallable } from 'firebase/functions';
 import PrimaryButton from './PrimaryButton';
 import { Container, Rating, Card, Grid, Typography, Avatar, CardHeader, CardContent, CardActionArea } from '@mui/material';
 import yelpIcon from "../assets/yelp_transparent.png"
-import Aos from 'aos';
-import "aos/dist/aos.css";
 
 const YelpReviews = () => {
   const [ reviews, setReviews ] = useState(null);
+
   useEffect(() => {
     httpsCallable(functions, "yelpReviews")().then((res) => {
         setReviews(JSON.parse(res.data).reviews)
     })
-    Aos.init({
-      duration: 800
-    });
   }, [])
+
   if(reviews) return (
     <Container sx={{ py: {xs: 2, md:5} }}>
 
