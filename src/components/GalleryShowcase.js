@@ -26,7 +26,7 @@ const GalleryShowcase = () => {
         <Grid container sx={{mx: "auto", width:{xs: "auto", md: "1000px"}}} spacing={.5} alignItems="center">
           {images.map(image => (
             <Grid item xs={window.innerWidth < 500 ? 6 :4} key={image} sx={{px: {xs: 0, md:1}}}>
-              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image} transformation={[{ height: 200, width: 350 }]}/>
+              <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={image} transformation={[{ height: 200, width: 350 }]} data-aos="fade" data-aos-duration="800" />
             </Grid>
           ))}
         </Grid>
