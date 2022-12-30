@@ -7,11 +7,13 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import ContactForm from '../components/ContactForm';
+import DocumentHead from '../components/DocumentHead';
 
 const Contact = () => {
   const { information } = useAppContext();
   return (
     <>
+      <DocumentHead title="Downtown Suits Direct | Contact"/>
       <Navbar/>
       <Container sx={{ py: 5 }}>
         <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em" }}>Contact</Typography>
