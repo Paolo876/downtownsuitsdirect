@@ -17,10 +17,10 @@ const StoreInformation = () => {
     <Container sx={{ py: {xs: 2, md:4} }}>
         <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item xs={12} sx={{textAlign: "center", letterSpacing: ".1em", mb: 2, }}>
-                <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em"}}>Downtown Suits Direct</Typography>
+                <Typography variant="h2" gutterBottom align='center' fontWeight="regular" fontSize={{xs: "1.45em", md: "1.8em"}} data-aos="fade">Downtown Suits Direct</Typography>
                 <hr/>
             </Grid>
-            <Grid item xs={12} sm={6} md={4} sx={{mt:3}}>
+            <Grid item xs={12} sm={6} md={4} sx={{mt:3}} data-aos="fade" data-aos-duration="300">
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={12}>
                         <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>{information.name}</Typography>
@@ -45,7 +45,7 @@ const StoreInformation = () => {
                 </Grid>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} sx={{mt:{xs: 2, md: 3}}}>
+            <Grid item xs={12} sm={6} md={4} sx={{mt:{xs: 2, md: 3}}} data-aos="fade" data-aos-duration="300">
                 <Grid container alignItems={{xs: "flex-start", md: "center"}}>
                     <Grid item xs={12}>
                         <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Address:</Typography>
@@ -63,7 +63,7 @@ const StoreInformation = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={4} sx={{my:{xs: 2, md: 3}}}>
+            <Grid item xs={12} md={4} sx={{my:{xs: 2, md: 3}}} data-aos="fade" data-aos-duration="300">
                 <Typography variant="h5" gutterBottom align='left' fontWeight="regular" color="textPrimary" mb={2}>Store Hours:</Typography>
                 <List sx={{width: '100%', maxWidth: 380, py: 0, ml: {xs: 0, sm: "3em", md: 0}}} >
                     {information["store-hours"].map(item => (

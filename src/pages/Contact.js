@@ -20,7 +20,7 @@ const Contact = () => {
           You can reach me using the contact informations provided or by submitting the inquiry form below.<br/>I'm looking forward to hear from you and I'd be happy to answer any questions and inquiries.
         </Typography>
         <Grid container my={6}>
-          <Grid item xs={12} sm={4} align="center">
+          <Grid item xs={12} sm={4} align="center" data-aos="fade">
             <Paper  sx={{display: "flex", flexDirection: {xs: "row", sm:"column"}, alignItems: "center", textAlign: {xs: "left", sm: "center"},justifyContent: {xs: "left",sm:"space-between"}, width: { xs: "100%", sm:200}, height: {xs: 100, sm: 160}, p:2, my: 1}}>
               <PlaceIcon sx={{fontSize: "2.5em", mx: 3}}/>
               <div>
@@ -30,7 +30,7 @@ const Contact = () => {
               </div>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={4} align="center">
+          <Grid item xs={12} sm={4} align="center" data-aos="fade">
             <Paper  sx={{display: "flex", flexDirection: {xs: "row", sm:"column"}, alignItems: "center", textAlign: {xs: "left", sm: "center"},justifyContent: {xs: "left",sm:"space-between"}, width: { xs: "100%", sm:200}, height: {xs: 100, sm: 160}, p:2, my: 1}}>
               <PhoneIcon sx={{fontSize: "2.5em", mx: 3}}/>
               <div>
@@ -39,7 +39,7 @@ const Contact = () => {
               </div>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={4} align="center">
+          <Grid item xs={12} sm={4} align="center" data-aos="fade">
             <Paper  sx={{display: "flex", flexDirection: {xs: "row", sm:"column"}, alignItems: "center", textAlign: {xs: "left", sm: "center"},justifyContent: {xs: "left",sm:"space-between"}, width: { xs: "100%", sm:200}, height: {xs: 100, sm: 160}, p:2, my: 1}}>
               <EmailIcon sx={{fontSize: "2.5em", mx: 3}}/>
               <div>
