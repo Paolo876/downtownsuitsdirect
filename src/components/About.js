@@ -14,7 +14,7 @@ const About = () => {
                 <hr/>
             </Grid>
 
-            <Grid item xs={12} sm={6} sx={{mb: 2, display: "flex", justifyContent: {xs: "center", md: "flex-end"} }} data-aos="slide-right" data-aos-duration="900" style={{overflow: "hidden", height: "100%", width: "100%"}}>
+            <Grid item xs={12} sm={6} sx={{mb: 2, display: "flex", justifyContent: {xs: "center", md: "flex-end"} }} data-aos="fade-right" style={{overflow: "hidden", height: "100%", width: "100%"}}>
               <IKImage urlEndpoint={imagekitKeys.urlEndpoint} src={information["store-image"]} transformation={[{ height: 280, width: 380 }]} style={{margin: "0 auto", objectFit: "cover"}}/>
             </Grid>
             <Grid item xs={12} sm={6} sx={{letterSpacing: ".1em", mb: 2, fontSize: {xs: 13, md: 15}}}>
