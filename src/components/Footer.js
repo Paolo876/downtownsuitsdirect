@@ -20,14 +20,14 @@ const Footer = () => {
                 <Grid item xs={6} sm={4}>
                     <Typography variant="subtitle1" gutterBottom textAlign="left" fontWeight="regular" color="background.paper" fontSize={{xs: 13, sm: 16}}>Contact</Typography>
                     <Typography variant="subtitle2" textAlign="left" fontWeight="light" color="background.paper" fontSize={{xs: 12, sm: 15}}>
-                        <PhoneIcon sx={{mr: {xs: 0, sm: 1}}} style={{verticalAlign:"middle"}} fontSize="small"/> {information.phone}
+                        <PhoneIcon sx={{mr: {xs: 0, sm: 1}, fontSize: {xs: 12, sm: 16}}} style={{verticalAlign:"middle"}}/> {information.phone}
                     </Typography>
                     <Typography variant="subtitle2" textAlign="left" fontWeight="light" color="background.paper" fontSize={{xs: 12, sm: 15}}>
-                        <EmailIcon sx={{mr: {xs: 0, sm: 1}}} style={{verticalAlign:"middle"}} fontSize="small"/> {information.email}
+                        <EmailIcon sx={{mr: {xs: 0, sm: 1}, fontSize: {xs: 12, sm: 16}}} style={{verticalAlign:"middle"}}/> {information.email}
                     </Typography>           
                 </Grid>
-                <Grid item xs={12} my={1}>
-                    <Typography variant="subtitle2" align='center' fontWeight="light" color="background.paper" fontSize={{xs: 10, sm: 12}} sx={{opacity: ".6"}}>
+                <Grid item xs={12} py={1}>
+                    <Typography variant="subtitle2" align='center' fontWeight="light" color="background.paper" fontSize={{xs: 11, sm: 12}} sx={{opacity: ".6"}}>
                         © 2023 Downtown Suits Direct | Pico Rivera, CA. All Rights Reserved.
                     </Typography>
        
@@ -39,5 +39,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-// {{xs: "right", sm:"left"}}
